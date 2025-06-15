@@ -1,0 +1,24 @@
+vcenter:
+  host: 10.11.4.73
+  username: Administrator@vsphere.local
+  password_env: VCENTER_PASSWORD  # export this env var instead of hard‑coding
+  validate_certs: false
+
+vms:
+  - name: websrv-01
+    template: Ubuntu-20
+    datacenter: Datacenter
+    cluster: cluster1
+    datastore: datastore1
+    hardware:
+      cpu: 2
+      memory_mb: 4096
+      disk_gb: 40
+    network:
+      name: VLAN_100
+      ip: 10.11.4.100
+      netmask: 255.255.255.0
+      gateway: 10.11.4.1
+      dns:
+        - 8.8.8.8
+        - 8.8.4.4
